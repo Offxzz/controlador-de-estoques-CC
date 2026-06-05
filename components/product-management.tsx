@@ -47,7 +47,7 @@ export function ProductManagement() {
   const [formData, setFormData] = useState({
     name: '',
     category: '',
-    location: 'Almoxarifado A',
+    location: 'Almoxarifado',
     quantityTotal: '20',
     quantityMinimum: '5',
     quantityAcceptable: '15',
@@ -58,7 +58,7 @@ export function ProductManagement() {
     setFormData({
       name: '',
       category: '',
-      location: 'Almoxarifado A',
+      location: 'Almoxarifado',
       quantityTotal: '20',
       quantityMinimum: '5',
       quantityAcceptable: '15',
@@ -165,12 +165,18 @@ export function ProductManagement() {
         </div>
         <div className="space-y-2">
           <Label className="text-foreground">Categoria</Label>
-          <Input
+          <Select
             value={formData.category}
-            onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-            placeholder="Ex: Limpeza"
-            className="bg-input border-border text-foreground"
-          />
+            onValueChange={(value) => setFormData({ ...formData, category: value })}
+          >
+            <SelectTrigger className="bg-input border-border text-foreground">
+              <SelectValue placeholder="Selecione uma categoria" />
+            </SelectTrigger>
+            <SelectContent className="bg-popover border-border">
+              <SelectItem value="Limpeza">Limpeza</SelectItem>
+              <SelectItem value="Equipamento">Equipamento</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
         <div className="space-y-2">
           <Label className="text-foreground">Local</Label>
@@ -182,9 +188,7 @@ export function ProductManagement() {
               <SelectValue />
             </SelectTrigger>
             <SelectContent className="bg-popover border-border">
-              <SelectItem value="Almoxarifado A">Almoxarifado A</SelectItem>
-              <SelectItem value="Almoxarifado B">Almoxarifado B</SelectItem>
-              <SelectItem value="Almoxarifado C">Almoxarifado C</SelectItem>
+              <SelectItem value="Almoxarifado">Almoxarifado</SelectItem>
             </SelectContent>
           </Select>
         </div>
