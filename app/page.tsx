@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription } from '@/components/ui/alert'
+import Image from 'next/image'
 import { 
   Warehouse, 
   ShieldCheck, 
@@ -184,9 +185,13 @@ export default function Home() {
           <div className="container mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-primary">
-                  <Warehouse className="h-6 w-6 text-primary-foreground" />
-                </div>
+                <Image
+                  src="/logo.png"
+                  alt="Clube Curitibano"
+                  width={48}
+                  height={48}
+                  className="rounded-lg"
+                />
                 <div>
                   <h1 className="text-xl font-bold text-foreground">Clube Curitibano</h1>
                   <p className="text-sm text-muted-foreground">Sistema de Controle de Estoque</p>

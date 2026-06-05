@@ -143,87 +143,100 @@ export function ProductManagement() {
     )
   }
 
-  const ProductForm = ({ onSubmit, buttonText }: { onSubmit: () => void; buttonText: string }) => (
-    <div className="space-y-4">
-      <div className="space-y-2">
-        <Label className="text-foreground">Nome do Produto</Label>
-        <Input
-          value={formData.name}
-          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          placeholder="Ex: Bola de Futebol"
-          className="bg-input border-border text-foreground"
-        />
-      </div>
-      <div className="space-y-2">
-        <Label className="text-foreground">Categoria</Label>
-        <Input
-          value={formData.category}
-          onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-          placeholder="Ex: Esportes"
-          className="bg-input border-border text-foreground"
-        />
-      </div>
-      <div className="space-y-2">
-        <Label className="text-foreground">Local</Label>
-        <Select
-          value={formData.location}
-          onValueChange={(value) => setFormData({ ...formData, location: value })}
-        >
-          <SelectTrigger className="bg-input border-border text-foreground">
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent className="bg-popover border-border">
-            <SelectItem value="Almoxarifado A">Almoxarifado A</SelectItem>
-            <SelectItem value="Almoxarifado B">Almoxarifado B</SelectItem>
-            <SelectItem value="Almoxarifado C">Almoxarifado C</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-      <div className="grid grid-cols-2 gap-4">
+  const ProductForm = ({ onSubmit, buttonText }: { onSubmit: () => void; buttonText: string }) => {
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+      if (e.key === 'Enter' && formData.name.trim()) {
+        e.preventDefault()
+        onSubmit()
+      }
+    }
+
+    return (
+      <div className="space-y-4" onKeyDown={handleKeyDown}>
         <div className="space-y-2">
-          <Label className="text-foreground">Qtd. Total</Label>
+          <Label className="text-foreground">Nome do Produto</Label>
           <Input
-            type="number"
-            value={formData.quantityTotal}
-            onChange={(e) => setFormData({ ...formData, quantityTotal: e.target.value })}
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            placeholder="Ex: Detergente"
+            className="bg-input border-border text-foreground"
+            autoFocus
+          />
+        </div>
+        <div className="space-y-2">
+          <Label className="text-foreground">Categoria</Label>
+          <Input
+            value={formData.category}
+            onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+            placeholder="Ex: Limpeza"
             className="bg-input border-border text-foreground"
           />
         </div>
         <div className="space-y-2">
-          <Label className="text-foreground">Qtd. Atual</Label>
-          <Input
-            type="number"
-            value={formData.currentQuantity}
-            onChange={(e) => setFormData({ ...formData, currentQuantity: e.target.value })}
-            className="bg-input border-border text-foreground"
-          />
+          <Label className="text-foreground">Local</Label>
+          <Select
+            value={formData.location}
+            onValueChange={(value) => setFormData({ ...formData, location: value })}
+          >
+            <SelectTrigger className="bg-input border-border text-foreground">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent className="bg-popover border-border">
+              <SelectItem value="Almoxarifado A">Almoxarifado A</SelectItem>
+              <SelectItem value="Almoxarifado B">Almoxarifado B</SelectItem>
+              <SelectItem value="Almoxarifado C">Almoxarifado C</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <Label className="text-foreground">Qtd. Total</Label>
+            <Input
+              type="number"
+              value={formData.quantityTotal}
+              onChange={(e) => setFormData({ ...formData, quantityTotal: e.target.value })}
+              className="bg-input border-border text-foreground"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label className="text-foreground">Qtd. Atual</Label>
+            <Input
+              type="number"
+              value={formData.currentQuantity}
+              onChange={(e) => setFormData({ ...formData, currentQuantity: e.target.value })}
+              className="bg-input border-border text-foreground"
+            />
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <Label className="text-foreground">Qtd. Minima</Label>
+            <Input
+              type="number"
+              value={formData.quantityMinimum}
+              onChange={(e) => setFormData({ ...formData, quantityMinimum: e.target.value })}
+              className="bg-input border-border text-foreground"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label className="text-foreground">Qtd. Aceitavel</Label>
+            <Input
+              type="number"
+              value={formData.quantityAcceptable}
+              onChange={(e) => setFormData({ ...formData, quantityAcceptable: e.target.value })}
+              className="bg-input border-border text-foreground"
+            />
+          </div>
+        </div>
+        <p className="text-xs text-muted-foreground text-center">
+          Pressione Enter para salvar rapidamente
+        </p>
+        <Button onClick={onSubmit} className="w-full bg-primary text-primary-foreground">
+          {buttonText}
+        </Button>
       </div>
-      <div className="grid grid-cols-2 gap-4">
-        <div className="space-y-2">
-          <Label className="text-foreground">Qtd. Mínima</Label>
-          <Input
-            type="number"
-            value={formData.quantityMinimum}
-            onChange={(e) => setFormData({ ...formData, quantityMinimum: e.target.value })}
-            className="bg-input border-border text-foreground"
-          />
-        </div>
-        <div className="space-y-2">
-          <Label className="text-foreground">Qtd. Aceitável</Label>
-          <Input
-            type="number"
-            value={formData.quantityAcceptable}
-            onChange={(e) => setFormData({ ...formData, quantityAcceptable: e.target.value })}
-            className="bg-input border-border text-foreground"
-          />
-        </div>
-      </div>
-      <Button onClick={onSubmit} className="w-full bg-primary text-primary-foreground">
-        {buttonText}
-      </Button>
-    </div>
-  )
+    )
+  }
 
   return (
     <Card className="border-border bg-card">
