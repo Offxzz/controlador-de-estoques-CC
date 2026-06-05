@@ -20,7 +20,7 @@ export interface Movement {
   quantity: number
   date: string
   time: string
-  shift: 'Manhã' | 'Tarde' | 'Noite'
+  shift: 'Diurno' | 'Noturno'
   responsibleDelivery: string
   responsibleWithdrawal: string
   location: string
@@ -29,9 +29,8 @@ export interface Movement {
 export interface DailyStats {
   date: string
   shifts: {
-    morning: number
-    afternoon: number
-    night: number
+    diurno: number
+    noturno: number
   }
   totalIn: number
   totalOut: number
@@ -47,7 +46,7 @@ const initialProducts: Product[] = [
     quantityMinimum: 5,
     quantityAcceptable: 15,
     currentQuantity: 18,
-    location: 'Almoxarifado A',
+    location: 'Almoxarifado',
   },
   {
     id: '2',
@@ -57,7 +56,7 @@ const initialProducts: Product[] = [
     quantityMinimum: 5,
     quantityAcceptable: 15,
     currentQuantity: 12,
-    location: 'Almoxarifado A',
+    location: 'Almoxarifado',
   },
   {
     id: '3',
@@ -67,7 +66,7 @@ const initialProducts: Product[] = [
     quantityMinimum: 5,
     quantityAcceptable: 15,
     currentQuantity: 16,
-    location: 'Almoxarifado A',
+    location: 'Almoxarifado',
   },
   {
     id: '4',
@@ -77,7 +76,7 @@ const initialProducts: Product[] = [
     quantityMinimum: 5,
     quantityAcceptable: 15,
     currentQuantity: 10,
-    location: 'Almoxarifado A',
+    location: 'Almoxarifado',
   },
   {
     id: '5',
@@ -87,7 +86,7 @@ const initialProducts: Product[] = [
     quantityMinimum: 5,
     quantityAcceptable: 15,
     currentQuantity: 8,
-    location: 'Almoxarifado A',
+    location: 'Almoxarifado',
   },
   {
     id: '6',
@@ -97,7 +96,7 @@ const initialProducts: Product[] = [
     quantityMinimum: 5,
     quantityAcceptable: 15,
     currentQuantity: 15,
-    location: 'Almoxarifado A',
+    location: 'Almoxarifado',
   },
   {
     id: '7',
@@ -107,7 +106,7 @@ const initialProducts: Product[] = [
     quantityMinimum: 5,
     quantityAcceptable: 15,
     currentQuantity: 14,
-    location: 'Almoxarifado A',
+    location: 'Almoxarifado',
   },
   {
     id: '8',
@@ -117,7 +116,7 @@ const initialProducts: Product[] = [
     quantityMinimum: 5,
     quantityAcceptable: 15,
     currentQuantity: 12,
-    location: 'Almoxarifado A',
+    location: 'Almoxarifado',
   },
   {
     id: '9',
@@ -127,7 +126,7 @@ const initialProducts: Product[] = [
     quantityMinimum: 5,
     quantityAcceptable: 15,
     currentQuantity: 6,
-    location: 'Almoxarifado A',
+    location: 'Almoxarifado',
   },
   {
     id: '10',
@@ -137,7 +136,7 @@ const initialProducts: Product[] = [
     quantityMinimum: 5,
     quantityAcceptable: 15,
     currentQuantity: 9,
-    location: 'Almoxarifado A',
+    location: 'Almoxarifado',
   },
   {
     id: '11',
@@ -147,7 +146,7 @@ const initialProducts: Product[] = [
     quantityMinimum: 5,
     quantityAcceptable: 15,
     currentQuantity: 4,
-    location: 'Almoxarifado A',
+    location: 'Almoxarifado',
   },
   {
     id: '12',
@@ -157,7 +156,7 @@ const initialProducts: Product[] = [
     quantityMinimum: 5,
     quantityAcceptable: 15,
     currentQuantity: 11,
-    location: 'Almoxarifado A',
+    location: 'Almoxarifado',
   },
   {
     id: '13',
@@ -167,7 +166,7 @@ const initialProducts: Product[] = [
     quantityMinimum: 5,
     quantityAcceptable: 15,
     currentQuantity: 7,
-    location: 'Almoxarifado B',
+    location: 'Almoxarifado',
   },
   {
     id: '14',
@@ -177,7 +176,7 @@ const initialProducts: Product[] = [
     quantityMinimum: 5,
     quantityAcceptable: 15,
     currentQuantity: 3,
-    location: 'Almoxarifado B',
+    location: 'Almoxarifado',
   },
   {
     id: '15',
@@ -187,7 +186,7 @@ const initialProducts: Product[] = [
     quantityMinimum: 5,
     quantityAcceptable: 15,
     currentQuantity: 5,
-    location: 'Almoxarifado B',
+    location: 'Almoxarifado',
   },
   {
     id: '16',
@@ -197,7 +196,7 @@ const initialProducts: Product[] = [
     quantityMinimum: 5,
     quantityAcceptable: 15,
     currentQuantity: 2,
-    location: 'Almoxarifado B',
+    location: 'Almoxarifado',
   },
 ]
 
@@ -210,10 +209,10 @@ const initialMovements: Movement[] = [
     quantity: 2,
     date: '2026-06-05',
     time: '09:30',
-    shift: 'Manhã',
-    responsibleDelivery: 'João Silva',
-    responsibleWithdrawal: 'Carlos Santos',
-    location: 'Almoxarifado A',
+    shift: 'Diurno',
+    responsibleDelivery: 'Maria Márica',
+    responsibleWithdrawal: 'Ruth',
+    location: 'Almoxarifado',
   },
   {
     id: '2',
@@ -222,11 +221,11 @@ const initialMovements: Movement[] = [
     type: 'saida',
     quantity: 3,
     date: '2026-06-05',
-    time: '14:15',
-    shift: 'Tarde',
-    responsibleDelivery: 'Maria Oliveira',
-    responsibleWithdrawal: 'Ana Costa',
-    location: 'Almoxarifado A',
+    time: '22:15',
+    shift: 'Noturno',
+    responsibleDelivery: 'José',
+    responsibleWithdrawal: 'Moisés',
+    location: 'Almoxarifado',
   },
   {
     id: '3',
@@ -236,10 +235,10 @@ const initialMovements: Movement[] = [
     quantity: 10,
     date: '2026-06-05',
     time: '08:00',
-    shift: 'Manhã',
+    shift: 'Diurno',
     responsibleDelivery: 'Fornecedor X',
-    responsibleWithdrawal: 'João Silva',
-    location: 'Almoxarifado A',
+    responsibleWithdrawal: 'Ruth',
+    location: 'Almoxarifado',
   },
 ]
 
