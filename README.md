@@ -1,4 +1,4 @@
-# Controlador de Estoques
+# Controlador de Estoques 
 
 Sistema web desenvolvido para facilitar o **controle e gerenciamento de estoque**, permitindo consultar produtos, registrar entradas e saídas e acompanhar as movimentações realizadas.
 
