@@ -1,33 +1,70 @@
-# controlador-de-estoques-CC
+# Controlador de Estoques
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+Sistema web desenvolvido para facilitar o **controle e gerenciamento de estoque**, permitindo consultar produtos, registrar entradas e saídas e acompanhar as movimentações realizadas.
 
-## Built with v0
+## Objetivo
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
+O projeto foi desenvolvido com o objetivo de tornar o controle de estoque mais organizado, permitindo acompanhar a quantidade de produtos e identificar situações de estoque baixo.
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_XZav5rrb6eD3LI5HpIcrvufPAtjF)
+## Funcionalidades
 
-## Getting Started
+* Consulta de produtos e quantidades em estoque;
+* Registro de entrada de produtos;
+* Registro de saída de produtos;
+* Histórico de movimentações;
+* Visualização de estatísticas;
+* Painel de gerenciamento para usuários autorizados;
+* Cadastro, edição e exclusão de produtos.
 
-First, run the development server:
+## Tecnologias
+
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+* Base UI / shadcn
+* Lucide React
+
+## Como executar
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/Offxzz/controlador-de-estoques-CC.git
+```
+
+### 2. Acesse a pasta
+
+```bash
+cd controlador-de-estoques-CC
+```
+
+### 3. Instale as dependências
+
+```bash
+npm install
+```
+
+### 4. Execute o projeto
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open (https://v0-controlador-de-estoques-cc.vercel.app) with your browser to see the result.
+A aplicação estará disponível em:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-## Learn More
+## Armazenamento
 
-To learn more, take a look at the following resources:
+Atualmente, os dados são armazenados **em memória**, utilizando dados de exemplo para demonstrar o funcionamento do sistema.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+Como evolução futura, o projeto poderá ser integrado a um banco de dados para permitir a persistência das informações.
+
+## Autor
+
+**Leonardo Pinheiro**
+
+GitHub: https://github.com/Offxzz
